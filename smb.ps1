@@ -413,7 +413,7 @@ function Install-Chocolatey
 }
 
 New-LoopbackAdapter -Name 'Loopback'
-Get-WmiObject win32_networkadapter -Property guid, Name | Where-Object { $_.Name -like 'Microsoft KM-TEST Loopback Adapter*' } | Select-Object -ExpandProperty GUID  | foreach { Set-ItemProperty -Path "$key\Tcpip_$_" -name NetBiosOptions -value 2 }
+Get-WmiObject win32_networkadapter -Property guid, Name | Where-Object { $_.Name -like 'Microsoft KM-TEST Loopback Adapter*' } | Select-Object -ExpandProperty GUID  | foreach { Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\NetBT\Parameters\Interfaces\Tcpip_$_" -name NetBiosOptions -value 2 }
 
 sc.exe config lanmanserver start= delayed-auto
 sc.exe config iphlpsvc start= auto
