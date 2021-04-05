@@ -31,7 +31,7 @@ or with ssh
 .\ssh-smb.ps1 "<user>@<ip> -p <SSH_Port> -i <private_key>"
 ```
 
-if you want to specify the add NIC's ip and name (default are 10.255.255.1 and "Loopback"), use
+if you want to specify the added NIC's ip and name (default are 10.255.255.1 and "Loopback"), use
 
 ```
 .\smb.ps1 DESTINATION_IP DESTINATION_PORT NIC_IP NIC_NAME
